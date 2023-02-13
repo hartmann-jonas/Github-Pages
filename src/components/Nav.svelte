@@ -3,7 +3,12 @@
     <a href="/clicker">Clicker</a>
     <a href="/todo">Todo-List</a>
     <a href="/eliza">ElizaBot</a>
+    <a href="/memory">Memory</a>
+    <a href="/search">API Search</a>
 </nav>
+
+<slot />
+
 <footer>
     <p>Jonas Hartmann - 2023</p>
 </footer>
