@@ -5,6 +5,7 @@
     <a href="/eliza">ElizaBot</a>
     <a href="/memory">Memory</a>
     <a href="/search">API Search</a>
+    <a href="/blog">Blog</a>
 </nav>
 
 <slot />

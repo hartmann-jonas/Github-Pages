@@ -5,28 +5,6 @@
   
   
 <main>
-  <nav>
-    <ul>
-        <li>
-            <a href="/">Maja Webutveckling 2</a>
-        </li>
-        <li>
-            <a href="/clicker">Clicker</a>
-        </li>
-        <li>
-            <a href="/todo">Todo-List</a>
-        </li>
-        <li>
-            <a href="/eliza">ElizaBot</a>
-        </li>
-        <li>
-            <a href="/memory">Memory</a>
-        </li>
-        <li>
-            <a href="/search">API Search</a>
-        </li>
-    </ul>
-  </nav>
   <h2>{"Showing results for: " + data.params.category}</h2>
   <hr />
   <!-- TODO: Style the results -->

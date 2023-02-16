@@ -10,5 +10,30 @@
 </svelte:head>
 
 <main class="container">
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Maja Webutveckling 2</a>
+            </li>
+            <li>
+                <a href="/clicker">Clicker</a>
+            </li>
+            <li>
+                <a href="/todo">Todo-List</a>
+            </li>
+            <li>
+                <a href="/eliza">ElizaBot</a>
+            </li>
+            <li>
+                <a href="/memory">Memory</a>
+            </li>
+            <li>
+                <a href="search">API Search</a>
+            </li>
+            <li>
+                <a href="/blog">Blog</a>
+            </li>
+        </ul>
+    </nav>
     <slot />
 </main>

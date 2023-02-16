@@ -63,6 +63,9 @@
         <li>
           <a href="/search">API Search</a>
         </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
       </ul>
     </nav>
     <h1>Chat with Eliza</h1>
