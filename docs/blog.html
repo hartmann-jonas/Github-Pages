@@ -5,7 +5,7 @@
 		<link rel="icon" href="./favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_page-708c6fa2.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
 		<link rel="modulepreload" href="./_app/immutable/start-6ccd9d05.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-75a51a4d.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-38c6d290.js">
@@ -15,51 +15,52 @@
 		<link rel="modulepreload" href="./_app/immutable/components/layout.svelte-098a8353.js">
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/components/pages/eliza/_page.svelte-a5193791.js"><title>Chat w/ eliza</title><!-- HEAD_svelte-wx03r7_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
+		<link rel="modulepreload" href="./_app/immutable/components/pages/blog/_layout.svelte-a4bd93bd.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/blog/_page.svelte-e58236c0.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/blog/_page.js-4b271f59.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-80848ead.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
         margin-left: 10%;
         margin-right: 10%;
       }
-    </style><!-- HEAD_svelte-wx03r7_END -->
+    </style><!-- HEAD_svelte-3vh2vb_END -->
 	</head>
 	<body>
 		<div>
 
 
 
-
   
-  <div class="container svelte-1n2kl9i"><nav><ul><li><a href="/">Maja Webutveckling 2</a></li>
+  <main class="container"><nav><ul><li><a href="/">Maja Webutveckling 2</a></li>
         <li><a href="/clicker">Clicker</a></li>
         <li><a href="/todo">Todo-List</a></li>
         <li><a href="/eliza">ElizaBot</a></li>
         <li><a href="/memory">Memory</a></li>
         <li><a href="/search">API Search</a></li>
         <li><a href="/blog">Blog</a></li></ul></nav>
-    <h1>Chat with Eliza</h1>
-    <div class="scrollable svelte-1n2kl9i"><div class="chat">
-            <article class="svelte-1n2kl9i  eliza"><span>Is something troubling you ?</span>
-            </article></div></div>
+    <h1>Blog</h1>
+  
+<ul><li><h2><a href="/blog/1">Post One
+        </a></h2>
+      Published 2023--14
+    </li></ul></main>
 
-    <form method="post"><input type="text" name="text"></form>
-  </div>
 
-
-		<script type="module" data-sveltekit-hydrate="1ev06hf">
+		<script type="module" data-sveltekit-hydrate="14ycmwq">
 			import { start } from "./_app/immutable/start-6ccd9d05.js";
 
 			start({
 				env: {},
 				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1ev06hf"]').parentNode,
+				target: document.querySelector('[data-sveltekit-hydrate="14ycmwq"]').parentNode,
 				version: "1676560396810",
 				hydrate: {
-					node_ids: [0, 9],
-					data: [null,null],
+					node_ids: [0, 2, 6],
+					data: [null,null,null],
 					form: null,
 					error: null
 				}
 			});
 		</script>
-	</div>
+	<script type="application/json" data-sveltekit-fetched data-url="/api/posts">{"status":200,"statusText":"","headers":{},"body":"[{\"meta\":{\"title\":\"Post One\",\"date\":\"2023--14\"},\"path\":\"1\"}]"}</script></div>
 	</body>
 </html>
