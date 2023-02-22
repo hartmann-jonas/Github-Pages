@@ -1,45 +1,20 @@
 <script>
 	import Nav from "../../components/Nav.svelte";
-
-    /**
-	 * @type {any[]}
-	 */
-     export let todos = [];
-    let todoInput = '';
-    let todoId = 0;
-
-    function addTodo() {
-        todos = [...todos, {id: todoId, name: todoInput, completed: false}]
-        console.log(todos);
-        todoInput = '';
-        todoId ++;
-        return todos;
-    }
-
-    function todoDelete(todo) {
-        todos = todos.filter(t => t.id !== todo.id)
-        console.log(todos)
-    }
-
+    import { todoStore } from "../../stores";
 
 </script>
 
-<Nav></Nav>
+<Nav />
 
 <div class="todo-list">
-    <h1>Todo List</h1>
-    
-    <form on:submit|preventDefault={addTodo}>
-        <input bind:value={todoInput} type="text" autocomplete="off">
-        <button type="submit">Submit</button>
-    </form>
-    <ul>
-        {#each todos as todo}
-            <li>
-                <input type="checkbox" name="markDone" id="markDone">{todo.name}<button on:click={() => todoDelete(todo)}>Delete</button>
-            </li>
-        {/each}
-    </ul>
+    <h1>TODO LIST</h1>
+    {#each $todoStore as todo, index}
+    <p>
+        <input bind:value={$todoStore[index]} />
+        <button class="delete" on:click={() => todoStore.removeItem(index)}>X</button>
+    </p>
+    {/each}
+    <button class="add" on:click={todoStore.addItem}>ADD</button>
 </div>
 
 <style>
@@ -52,21 +27,42 @@
         text-align: center;
         align-items: center;
     }
-    
-    ul {
-        align-items: center;
+
+    p {
+        background-color: rgb(235, 233, 231);
+        width: max-content;
+        margin: auto;
         padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    
+    input {
+        align-items: center;
+        height: 35px;
         list-style: none;
+        border-radius: 5%;
+        border: transparent;
+        background-color: rgb(252, 252, 252);
     }
 
-    li {
-        width: 60%;
-        background-color: grey;
+    .delete {
+        background-color: red;
         text-align: center;
-        display: flex;
-        justify-content: space-between;
         margin: auto;
-        padding: 10px;
-        font-size: 20px;
+        border: transparent;
+        height: 40px;
+        aspect-ratio: 1;
+        border-radius: 15%;
+    }
+
+    .add {
+        background-color: blue;
+        color: white;
+        text-align: center;
+        margin: auto;
+        border: transparent;
+        height: 50px;
+        width: 100px;
     }
 </style>
