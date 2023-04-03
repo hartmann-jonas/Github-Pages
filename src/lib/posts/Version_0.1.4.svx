@@ -1,0 +1,22 @@
+---
+title: Version 0.1.3
+date: "2023-04-03"
+---
+# Similarity is key
+## Description
+The movie page now shows movies that are similar to that one as well as BTS or other videos related to the movie
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Change [themoviedb API](https://developers.themoviedb.org/3) request to include recommended movies
+* Style the movies using the movie card component
+
+
+## Features
+✅ Similar movie recommended on movie page 🎬
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/fb1246bddc01767d17b05ac751639f7d4f2e6666" target="_blank">Version 0.1.3</a>
+
+Published: 2023-04-03

@@ -1,0 +1,23 @@
+---
+title: Version 0.1.1
+date: "2023-04-03"
+---
+# Analytics
+## Description
+With the website hosted I decided to implement some audience analytics, no worries nothing to scary. Those analytics just show how many people visited the page and from which countries the visitors came.  
+Additionally I also changed the design of the login and register form to be more pleasing.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Added [Vercel Audience Analytics](https://vercel.com/docs/concepts/analytics/audiences/quickstart)
+* UI change on the login/refister form
+
+
+## Features
+✅ Audience Analytics 👀       
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/747c585cdeb6235b7b43bed4466e78d528801d16" target="_blank">Version 0.1.1 (1)</a> <a href="https://github.com/hartmann-jonas/movie-db-two/commit/f72057a2aa39600f2fb1dc0646205929d77d3676" target="_blank">Version 0.1.1 (2)</a>
+
+Published: 2023-04-03

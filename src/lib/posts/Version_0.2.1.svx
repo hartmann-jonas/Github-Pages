@@ -1,0 +1,35 @@
+---
+title: Version 0.2.1
+date: "2023-04-03"
+---
+# Better recommendations
+## Description
+Optimization of the Recommender System. The fact that often no recommendation could be found when using keywords is due to the fact that keywords are very unique and do not overlap greatly across different movies. Therefore, combinations can arise for which there is no movie.
+
+To change this, we switched from keywords to genres, because there is more overlap. However, the recommendations are still accurate and relevant.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Big changes to the database
+    * New model "Genres"
+    * If a movie gets liked, the genres are added to the movie
+
+How do we get the recommended movies?
+* When visiting the page, all genres are queried that the user liked
+* From those genres, the top 3 genres are evaluated based on frequency
+* With these genres an API request is sent to TheMovieDB which returns movies with these genres
+* From the response, the movies that the user has liked are filtered out
+
+Bug fixes:
+* Better fetch of the movie details by using `await Promise.all`
+
+
+
+## Features
+✅ Better recommendations 🛠️     
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/f1e15c3d406c0e62aad044ee7a2d3515c4ed19bf" target="_blank">Version 0.2.1</a>
+
+Published: 2023-04-03

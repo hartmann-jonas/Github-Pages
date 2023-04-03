@@ -1,0 +1,24 @@
+---
+title: Version 0.1.0
+date: "2023-04-03"
+---
+# Let's get on the internet
+## Description
+In this version the website is prepared to be hosted on [Vercel](https://vercel.com).
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Update the SQLite database to a free hosted PostgreSQL database on [Render](https://render.com)
+* Created a free database on [Render](https://render.com)
+* Changed from SvelteKit's `invalid` to the new `fail`a
+* Add a loading animation to the login screen while the request to the database is being awaited
+
+## Features
+✅ Hosting on Vercel 🎉  
+✅ New PostgreSQL database 🔐      
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/94c05055115155428982059e95899106b334d96e" target="_blank">Version 0.1.0</a>
+
+Published: 2023-04-03

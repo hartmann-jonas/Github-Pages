@@ -1,12 +1,10 @@
----
-title: Development of a Movie Website
-date: "2023-04-03"
----
 ## How to develop a Movie Website
+
 This blog is about the development and concept of this [Movie Database](https://movie-db-two-hartmann-jonas.vercel.app) website.
-The website is hosted on [Vercel](https://vercel.com) and was developed using [Svelte](https://svelte.dev) as well as the [TheMovieDB API](https://developers.themoviedb.org/3).
+The website was developed using [svelte](https://svelte.dev) and the [themoviedb](https://developers.themoviedb.org/3).
 
 ## Features
+
 The website has the following features:  
 ✅ Daily popular movies  
 ✅ Search movie by name  
@@ -14,7 +12,6 @@ The website has the following features:
 ✅ Like movies  
 ✅ Save movies  
 ✅ Individualized recommendations  
-❌ More optimized recommendations  
 ❌ Links to watch the movie on the movie providers website
 
 
@@ -27,34 +24,31 @@ How do I document the process developing that website? I set myself some rules t
 
 The "Version" posts follow this template:
 
-```
----
-title: Version x.x.x
-date: "2023-04-03"
----
-# Short Title
+    ---
+    title: Version 0.0.x
+    date: "2023-04-03"
+    ---
+    ## Version 0.0.1
 
-## Description
-Some descriptive text that gives a quick
-overview on the changes made.
+    ## Description
+    Some descriptive text that gives a quick overview on the changes made.
 
-## Changes
-More detailed desctiption of the changes:
-1. Fetch function to get this
-2. Restructuring the navbar to improve 
-3.
+    ## Changes
+    More detailed desctiption of the changes:
+    1. Fetch function to get this
+    2. Restructuring the navbar to improve 
+    3.
 
-Some more descriptive text about changes in detail
+    To get a better view on the changes proposed in that first version it is easier to watch the tutorial, it gives you a much better insight into what I started with.
 
-## Features
-✅ Cool new feature ✨  
-✅ Another mediocre feature 🎉  
+    ## Features
+    ✅ Popular movies  
+    ✅ Search function      
 
-<hr>
-<br>
-Commit: [Version x.x.x](link to commit)
+    <hr>
+    <br>
+    Commit: [VERSION X.X.X](link to commit)
+    
+    Published: 2023-04-03
 
-Published: 2023-xx-xx
-```
-<br>
 Published: 2023-04-03

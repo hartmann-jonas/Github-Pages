@@ -1,0 +1,25 @@
+---
+title: Version 0.1.3
+date: "2023-04-03"
+---
+# Likes
+## Description
+You can now like the movies you love. 
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Added likes to movies
+    * Update Prisma schema to have likes in the Movie table
+    * Each like is a User that gets connected to the like field of the movie. That way the website knows if you liked the movie and displays the button differently
+* Big UI overhaul (color palette, structure of movie components)
+
+
+## Features
+✅ Likes for movies 👍  
+✅ New UI ✨  
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/36e73e65f6b76b8c8f86854c62a011b41975b292" target="_blank">Version 0.1.3</a>
+
+Published: 2023-04-03

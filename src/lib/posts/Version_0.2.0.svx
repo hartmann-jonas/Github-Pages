@@ -1,0 +1,30 @@
+---
+title: Version 0.2.0
+date: "2023-04-03"
+---
+# Recommendations
+## Description
+In Version 0.2.0 personal recommendations are added, the user will get individualized recommendations for him based on his own interests.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Big changes to the database
+    * New model "Keywords"
+    * If a movie gets liked, the keywords are added to the movie
+
+How do we get the recommended movies?
+* When visiting the page, all keywords are queried that the user liked
+* From those keywords, the top 3 keywords are evaluated based on frequency
+* With these keywords an API request is sent to TheMovieDB which returns movies with these keywords
+* From the response, the movies that the user has liked are filtered out
+
+
+
+## Features
+✅ Individualized recommendations ✨🎁     
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/951a804edac393080bdcddab50066ee9ea9ec0c6" target="_blank">Version 0.2.</a>
+
+Published: 2023-04-03

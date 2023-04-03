@@ -1,0 +1,23 @@
+---
+title: Version 0.1.2
+date: "2023-04-03"
+---
+# Favourites
+## Description
+Save the movies you want to watch for later. You can access them on your profile. 
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Added favourites to movies
+    * Update Prisma schema to have favourited_by in the Movie table
+    * Each favourite is a User that gets connected to the favourited_by field of the movie. That way the website knows if you saved the movie and displays the button differently
+
+
+## Features
+✅ Favourite movies ❤️  
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/07fdee50f684c2a043ba4f1ba89fe64f684883d1" target="_blank">Version 0.1.2</a>
+
+Published: 2023-04-03

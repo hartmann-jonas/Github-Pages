@@ -1,0 +1,24 @@
+---
+title: Version 0.0.3
+date: "2023-04-03"
+---
+# Availability
+## Description
+Now the website is starting to take more and more shape I decided to take advantage of the insanely powerful API that the website is using. Users can now see where a movie is available in Germany, Sweden, Austria, Switzerland, Canada and the US.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Fetch functions to the [TheMovieDB API](https://developers.themoviedb.org/3) to get the availability of the movie
+* Styling the icons and `<select>` tag
+
+Bug fixes:
+* Added redirect if user that is not logged in goes to the profile page
+
+## Features
+✅ Movie availability 🌍  
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/7887de9940fc4394b4b60dbaf870c35a7d867bb2" target="_blank">Version 0.0.3</a>
+
+Published: 2023-04-03

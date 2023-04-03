@@ -1,0 +1,27 @@
+---
+title: Version 0.0.1
+date: "2023-04-03"
+---
+# Getting started
+## Description
+Getting started with something is always one of the hardest parts of a project (at least for me). So I decided to use this [tutorial](https://youtu.be/ydR_M0fw9Xc) by developedbyed to help me find my way into Svelte and to give me an idea of what I want to build.
+
+Having done that tutorial, plus some addational research because there were breaking changes with fetching data since the tutorial has been published, I was presented with a nice looking cool website.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Several fetch functions to the [TheMovieDB API](https://developers.themoviedb.org/3) to get the popular and searched movies
+* Styling and structuring the page using components
+* Updated the fetch functions from the tutorial to be in a `+page.server.ts` file
+
+To get a better view on the changes proposed in that first version it is easier to watch the [tutorial](https://youtu.be/ydR_M0fw9Xc), it gives you a much better insight into what I started with.
+
+## Features
+✅ Popular movies 🍿  
+✅ Search function 🔎      
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/8f2e5d2106a1b26bc1c1941dcdebd95667871c43#diff-5b443964f4f3a611682db8f7e02177b0a8c632b2039e2bd5e4dd7347815c565c" target="_blank">Version 0.0.1</a>
+
+Published: 2023-04-03

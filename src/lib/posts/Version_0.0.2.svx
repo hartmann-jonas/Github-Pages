@@ -1,0 +1,24 @@
+---
+title: Version 0.0.2
+date: "2023-04-03"
+---
+# Login
+## Description
+After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. My teacher recommended this [tutorial](https://youtu.be/E3VG-dLCRUk) by Joy of Code to me on how to implement this functionality using cookies and a prisma database.
+
+## Changes
+The following changes and implementations have been made in that version of the project:
+* Installed [Prisma](https://prisma.io) and created a client with a SQLite database.
+* When user is logged in a cookie is created that saves the current session for 30 days
+* Use [SvelteKit Hooks](https://kit.svelte.dev/docs/hooks) to store the session for checking if the user is logged in
+
+To get a better view on how the login functionality works, watch the [tutorial](https://youtu.be/E3VG-dLCRUk).
+
+## Features
+✅ Login/Register 🧑‍💻  
+
+<hr>
+<br>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/c2b56d39d412752416717362c337289abdf3c189" target="_blank">Version 0.0.2</a>
+
+Published: 2023-04-03
