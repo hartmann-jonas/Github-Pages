@@ -1,6 +1,6 @@
 ---
 title: Version 0.2.1
-date: "2023-04-03"
+date: "2023-04-17"
 ---
 # Better recommendations
 ## Description
@@ -31,8 +31,19 @@ Bug fixes:
 ✅ Better recommendations 🛠️  
 
 ## Code
-The changes are the same as in "Version 0.2.0" but with renamed variables and changed URLs.  
-No new code description neccessary.
+The changes are the same as in "Version 0.2.0" but with renamed variables and changed URLs.
+
+Using await Promise.all allowed us to improve the loading time for the details page. This was done like the following.
+
+movie/[id]/+page.server.ts
+```ts
+// fetching like this allows both requests to be awaited simultaneously
+// therefore the load is quicker
+const [movieDetailResponse, movieAvailabilityResponse] = await Promise.all([
+    fetch(`url1`),
+    fetch(`url2`)
+]);
+```
 
 <hr>
 <br>

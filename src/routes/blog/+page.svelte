@@ -11,7 +11,7 @@
       <a href={"/blog/"+post.path}>
         {post.meta.title}
       </a>
-      <p>Published {post.meta.date}</p>
+      <p>Last edited {post.meta.date}</p>
     </li>
   {/each}
 </ul>
