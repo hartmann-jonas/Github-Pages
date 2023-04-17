@@ -1,64 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content="">
-		<link href="../_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/_page-d97f4a66.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-de550a14.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-b0905f39.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-4e3a929d.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-4b71bf5b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/control-e7f5239e.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/parse-b67c4dc9.js">
-		<link rel="modulepreload" href="../_app/immutable/components/layout.svelte-afe953a1.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_layout.svelte-3bb0ca78.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_path_/_page.svelte-408e1e2a.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-1f21e031.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-dd6bd23a.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
-        margin-left: 10%;
-        margin-right: 10%;
-      }
-    </style><!-- HEAD_svelte-3vh2vb_END -->
-	</head>
-	<body>
-		<div>
-
-
-
-  
-  <main class="container"><nav><ul><li><a href="/">Maja Webutveckling 2</a></li>
-        <li><a href="/clicker">Clicker</a></li>
-        <li><a href="/todo">Todo-List</a></li>
-        <li><a href="/eliza">ElizaBot</a></li>
-        <li><a href="/memory">Memory</a></li>
-        <li><a href="/search">API Search</a></li>
-        <li><a href="/blog">Blog</a></li></ul></nav>
-    
-
-  
-<article class="svelte-1viwzin"><div class="head svelte-1viwzin"><h1 class="svelte-1viwzin">Version 0.0.3</h1>
-        <p class="svelte-1viwzin">Last updated: 2023-04-03</p></div>
-    <div class="article svelte-1viwzin"><h1>Availability</h1>
-<h2>Description</h2>
-<p>Now the website is starting to take more and more shape I decided to take advantage of the insanely powerful API that the website is using. Users can now see where a movie is available in Germany, Sweden, Austria, Switzerland, Canada and the US.</p>
-<h2>Changes</h2>
-<p>The following changes and implementations have been made in that version of the project:</p>
-<ul><li>Fetch functions to the <a href="https://developers.themoviedb.org/3" rel="nofollow">TheMovieDB API</a> to get the availability of the movie</li>
-<li>Styling the icons and <code>&lt;select&gt;</code> tag</li></ul>
-<p>Bug fixes:</p>
-<ul><li>Added redirect if user that is not logged in goes to the profile page</li></ul>
-<h2>Features</h2>
-<p>✅ Movie availability 🌍  </p>
-<h2>Code</h2>
-<p>In here some selected code will be explained more in depth.</p>
-<p>movie/[id]/+page.svelte</p>
-<pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+import{S as Qa,i as Xa,s as Za,k as e,q as c,a as i,l as o,m as l,r as u,h as s,c as r,n as U,b as t,G as p,B as Ca}from"./index-b0905f39.js";function as(Ka){let k,oa,L,b,la,M,w,ca,j,_,ua,F,E,ia,G,m,v,ra,d,ka,ma,fa,y,va,B,da,ya,R,q,ha,V,A,D,ga,z,x,ba,N,P,wa,$,C,_a,K,S,Ea,O,I,qa,W,h,Oa=`<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
     <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> page <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'$app/stores'</span><span class="token punctuation">;</span>
 
     <span class="token keyword">export</span> <span class="token keyword">let</span> <span class="token literal-property property">data</span><span class="token operator">:</span> PageServerData<span class="token punctuation">;</span>
@@ -119,9 +59,7 @@
     &#123;:else&#125;
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Not available in &#123;selected.name&#125;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
     &#123;/if&#125;
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code><!-- HTML_TAG_END --></pre>
-<p>movie/[id]/+page.server.ts</p>
-<pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token comment">// we need to add the provider request to our http GET request</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code>`,Y,T,Aa,J,g,Wa=`<code class="language-ts"><span class="token comment">// we need to add the provider request to our http GET request</span>
 <span class="token comment">// so we add another fetch() behind the first</span>
 
 <span class="token keyword">const</span> resAvailability <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>
@@ -140,36 +78,6 @@
         <span class="token operator">...</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>
-</code><!-- HTML_TAG_END --></pre>
-<hr>
-<br>
-Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/7887de9940fc4394b4b60dbaf870c35a7d867bb2" target="_blank">Version 0.0.3</a>
-<p>Published: 2023-04-03</p></div>
-</article></main>
-
-
-		<script type="module" data-sveltekit-hydrate="1koe8ll">
-			import { start } from "../_app/immutable/start-de550a14.js";
-
-			start({
-				env: {},
-				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1koe8ll"]').parentNode,
-				version: "1681722850749",
-				hydrate: {
-					node_ids: [0, 2, 7],
-					data: [null,null,null],
-					form: null,
-					error: null
-				}
-			});
-		</script>
-	</div>
-	</body>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-</html>
+</code>`,Q,X,Z,aa,sa,f,xa,na,H,Pa;return{c(){k=e("h1"),oa=c("Availability"),L=i(),b=e("h2"),la=c("Description"),M=i(),w=e("p"),ca=c("Now the website is starting to take more and more shape I decided to take advantage of the insanely powerful API that the website is using. Users can now see where a movie is available in Germany, Sweden, Austria, Switzerland, Canada and the US."),j=i(),_=e("h2"),ua=c("Changes"),F=i(),E=e("p"),ia=c("The following changes and implementations have been made in that version of the project:"),G=i(),m=e("ul"),v=e("li"),ra=c("Fetch functions to the "),d=e("a"),ka=c("TheMovieDB API"),ma=c(" to get the availability of the movie"),fa=i(),y=e("li"),va=c("Styling the icons and "),B=e("code"),da=c("<select>"),ya=c(" tag"),R=i(),q=e("p"),ha=c("Bug fixes:"),V=i(),A=e("ul"),D=e("li"),ga=c("Added redirect if user that is not logged in goes to the profile page"),z=i(),x=e("h2"),ba=c("Features"),N=i(),P=e("p"),wa=c("✅ Movie availability 🌍"),$=i(),C=e("h2"),_a=c("Code"),K=i(),S=e("p"),Ea=c("In here some selected code will be explained more in depth."),O=i(),I=e("p"),qa=c("movie/[id]/+page.svelte"),W=i(),h=e("pre"),Y=i(),T=e("p"),Aa=c("movie/[id]/+page.server.ts"),J=i(),g=e("pre"),Q=i(),X=e("hr"),Z=i(),aa=e("br"),sa=c(`
+Commit: `),f=e("a"),xa=c("Version 0.0.3"),na=i(),H=e("p"),Pa=c("Published: 2023-04-03"),this.h()},l(a){k=o(a,"H1",{});var n=l(k);oa=u(n,"Availability"),n.forEach(s),L=r(a),b=o(a,"H2",{});var Sa=l(b);la=u(Sa,"Description"),Sa.forEach(s),M=r(a),w=o(a,"P",{});var Ia=l(w);ca=u(Ia,"Now the website is starting to take more and more shape I decided to take advantage of the insanely powerful API that the website is using. Users can now see where a movie is available in Germany, Sweden, Austria, Switzerland, Canada and the US."),Ia.forEach(s),j=r(a),_=o(a,"H2",{});var Ta=l(_);ua=u(Ta,"Changes"),Ta.forEach(s),F=r(a),E=o(a,"P",{});var Ha=l(E);ia=u(Ha,"The following changes and implementations have been made in that version of the project:"),Ha.forEach(s),G=r(a),m=o(a,"UL",{});var ta=l(m);v=o(ta,"LI",{});var pa=l(v);ra=u(pa,"Fetch functions to the "),d=o(pa,"A",{href:!0,rel:!0});var Ua=l(d);ka=u(Ua,"TheMovieDB API"),Ua.forEach(s),ma=u(pa," to get the availability of the movie"),pa.forEach(s),fa=r(ta),y=o(ta,"LI",{});var ea=l(y);va=u(ea,"Styling the icons and "),B=o(ea,"CODE",{});var Ba=l(B);da=u(Ba,"<select>"),Ba.forEach(s),ya=u(ea," tag"),ea.forEach(s),ta.forEach(s),R=r(a),q=o(a,"P",{});var Da=l(q);ha=u(Da,"Bug fixes:"),Da.forEach(s),V=r(a),A=o(a,"UL",{});var La=l(A);D=o(La,"LI",{});var Ma=l(D);ga=u(Ma,"Added redirect if user that is not logged in goes to the profile page"),Ma.forEach(s),La.forEach(s),z=r(a),x=o(a,"H2",{});var ja=l(x);ba=u(ja,"Features"),ja.forEach(s),N=r(a),P=o(a,"P",{});var Fa=l(P);wa=u(Fa,"✅ Movie availability 🌍"),Fa.forEach(s),$=r(a),C=o(a,"H2",{});var Ga=l(C);_a=u(Ga,"Code"),Ga.forEach(s),K=r(a),S=o(a,"P",{});var Ra=l(S);Ea=u(Ra,"In here some selected code will be explained more in depth."),Ra.forEach(s),O=r(a),I=o(a,"P",{});var Va=l(I);qa=u(Va,"movie/[id]/+page.svelte"),Va.forEach(s),W=r(a),h=o(a,"PRE",{class:!0});var Ya=l(h);Ya.forEach(s),Y=r(a),T=o(a,"P",{});var za=l(T);Aa=u(za,"movie/[id]/+page.server.ts"),za.forEach(s),J=r(a),g=o(a,"PRE",{class:!0});var Ja=l(g);Ja.forEach(s),Q=r(a),X=o(a,"HR",{}),Z=r(a),aa=o(a,"BR",{}),sa=u(a,`
+Commit: `),f=o(a,"A",{href:!0,target:!0});var Na=l(f);xa=u(Na,"Version 0.0.3"),Na.forEach(s),na=r(a),H=o(a,"P",{});var $a=l(H);Pa=u($a,"Published: 2023-04-03"),$a.forEach(s),this.h()},h(){U(d,"href","https://developers.themoviedb.org/3"),U(d,"rel","nofollow"),U(h,"class","language-html"),U(g,"class","language-ts"),U(f,"href","https://github.com/hartmann-jonas/movie-db-two/commit/7887de9940fc4394b4b60dbaf870c35a7d867bb2"),U(f,"target","_blank")},m(a,n){t(a,k,n),p(k,oa),t(a,L,n),t(a,b,n),p(b,la),t(a,M,n),t(a,w,n),p(w,ca),t(a,j,n),t(a,_,n),p(_,ua),t(a,F,n),t(a,E,n),p(E,ia),t(a,G,n),t(a,m,n),p(m,v),p(v,ra),p(v,d),p(d,ka),p(v,ma),p(m,fa),p(m,y),p(y,va),p(y,B),p(B,da),p(y,ya),t(a,R,n),t(a,q,n),p(q,ha),t(a,V,n),t(a,A,n),p(A,D),p(D,ga),t(a,z,n),t(a,x,n),p(x,ba),t(a,N,n),t(a,P,n),p(P,wa),t(a,$,n),t(a,C,n),p(C,_a),t(a,K,n),t(a,S,n),p(S,Ea),t(a,O,n),t(a,I,n),p(I,qa),t(a,W,n),t(a,h,n),h.innerHTML=Oa,t(a,Y,n),t(a,T,n),p(T,Aa),t(a,J,n),t(a,g,n),g.innerHTML=Wa,t(a,Q,n),t(a,X,n),t(a,Z,n),t(a,aa,n),t(a,sa,n),t(a,f,n),p(f,xa),t(a,na,n),t(a,H,n),p(H,Pa)},p:Ca,i:Ca,o:Ca,d(a){a&&s(k),a&&s(L),a&&s(b),a&&s(M),a&&s(w),a&&s(j),a&&s(_),a&&s(F),a&&s(E),a&&s(G),a&&s(m),a&&s(R),a&&s(q),a&&s(V),a&&s(A),a&&s(z),a&&s(x),a&&s(N),a&&s(P),a&&s($),a&&s(C),a&&s(K),a&&s(S),a&&s(O),a&&s(I),a&&s(W),a&&s(h),a&&s(Y),a&&s(T),a&&s(J),a&&s(g),a&&s(Q),a&&s(X),a&&s(Z),a&&s(aa),a&&s(sa),a&&s(f),a&&s(na),a&&s(H)}}}const ns={title:"Version 0.0.3",date:"2023-04-03"};class ts extends Qa{constructor(k){super(),Xa(this,k,null,as,Za,{})}}export{ts as default,ns as metadata};

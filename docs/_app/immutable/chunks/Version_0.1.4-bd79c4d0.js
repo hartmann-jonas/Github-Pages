@@ -1,67 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content="">
-		<link href="../_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/_page-d97f4a66.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-de550a14.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-b0905f39.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-4e3a929d.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-4b71bf5b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/control-e7f5239e.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/parse-b67c4dc9.js">
-		<link rel="modulepreload" href="../_app/immutable/components/layout.svelte-afe953a1.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_layout.svelte-3bb0ca78.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_path_/_page.svelte-408e1e2a.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-1f21e031.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-dd6bd23a.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
-        margin-left: 10%;
-        margin-right: 10%;
-      }
-    </style><!-- HEAD_svelte-3vh2vb_END -->
-	</head>
-	<body>
-		<div>
-
-
-
-  
-  <main class="container"><nav><ul><li><a href="/">Maja Webutveckling 2</a></li>
-        <li><a href="/clicker">Clicker</a></li>
-        <li><a href="/todo">Todo-List</a></li>
-        <li><a href="/eliza">ElizaBot</a></li>
-        <li><a href="/memory">Memory</a></li>
-        <li><a href="/search">API Search</a></li>
-        <li><a href="/blog">Blog</a></li></ul></nav>
-    
-
-  
-<article class="svelte-1viwzin"><div class="head svelte-1viwzin"><h1 class="svelte-1viwzin">Version 0.1.4</h1>
-        <p class="svelte-1viwzin">Last updated: 2023-04-03</p></div>
-    <div class="article svelte-1viwzin"><h1>Similarity is key</h1>
-<h2>Description</h2>
-<p>The movie page now shows movies that are similar to that one as well as BTS or other videos related to the movie</p>
-<h2>Changes</h2>
-<p>The following changes and implementations have been made in that version of the project:</p>
-<ul><li>Change <a href="https://developers.themoviedb.org/3" rel="nofollow">themoviedb API</a> request to include recommended movies</li>
-<li>Style the movies using the movie card component</li></ul>
-<h2>Features</h2>
-<p>✅ Similar movie recommended on movie page 🎬</p>
-<h2>Code</h2>
-<p>This change is using similar techniques as the “Version 0.0.3” change. Therefore there will just be a really quick rundown of the changed code.</p>
-<p>movie/[id]/+page.server.ts</p>
-<pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token comment">// append 'recommended' to the fetch url to include 'recommended'</span>
+import{S as Is,i as Rs,s as Ds,k as e,q as i,a as u,l as p,m as l,r as c,h as a,c as k,n as H,b as t,G as o,B as ds}from"./index-b0905f39.js";function Fs(xs){let r,Z,x,g,ss,L,b,as,V,w,ns,A,E,ts,B,m,f,es,h,ps,os,ls,j,is,I,y,cs,R,q,us,D,P,ks,F,T,rs,$,S,ms,G,d,Ls=`<code class="language-ts"><span class="token comment">// append 'recommended' to the fetch url to include 'recommended'</span>
 <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>
 		<span class="token template-string"><span class="token template-punctuation string">&#96;</span><span class="token string">https://api.themoviedb.org/3/movie/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>params<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">?api_key=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">TMDB_API_KEY</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">&amp;append_to_response=videos,keywords,recommendations</span><span class="token template-punctuation string">&#96;</span></span>
-<span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
-<p>movie/[id]/+page.svelte</p>
-<pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token punctuation">)</span></code>`,K,C,vs,U,_,Vs=`<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
     <span class="token comment">// assign the recommended movies to a new variable</span>
     <span class="token comment">// limit the recommendedMovies to 10 to reduce loading times</span>
     <span class="token keyword">let</span> recommendedMovies <span class="token operator">=</span> data<span class="token punctuation">.</span>props<span class="token punctuation">.</span>movieDetail<span class="token punctuation">.</span>recommendations<span class="token punctuation">.</span>result<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
@@ -89,36 +29,6 @@
             &#123;/each&#125;
 	    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-&#123;/if&#125;</code><!-- HTML_TAG_END --></pre>
-<hr>
-<br>
-Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/fb1246bddc01767d17b05ac751639f7d4f2e6666" target="_blank">Version 0.1.4</a>
-<p>Published: 2023-04-03</p></div>
-</article></main>
-
-
-		<script type="module" data-sveltekit-hydrate="1lktwl1">
-			import { start } from "../_app/immutable/start-de550a14.js";
-
-			start({
-				env: {},
-				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1lktwl1"]').parentNode,
-				version: "1681722850749",
-				hydrate: {
-					node_ids: [0, 2, 7],
-					data: [null,null,null],
-					form: null,
-					error: null
-				}
-			});
-		</script>
-	</div>
-	</body>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-</html>
+&#123;/if&#125;</code>`,Y,z,J,N,O,v,fs,Q,M,hs;return{c(){r=e("h1"),Z=i("Similarity is key"),x=u(),g=e("h2"),ss=i("Description"),L=u(),b=e("p"),as=i("The movie page now shows movies that are similar to that one as well as BTS or other videos related to the movie"),V=u(),w=e("h2"),ns=i("Changes"),A=u(),E=e("p"),ts=i("The following changes and implementations have been made in that version of the project:"),B=u(),m=e("ul"),f=e("li"),es=i("Change "),h=e("a"),ps=i("themoviedb API"),os=i(" request to include recommended movies"),ls=u(),j=e("li"),is=i("Style the movies using the movie card component"),I=u(),y=e("h2"),cs=i("Features"),R=u(),q=e("p"),us=i("✅ Similar movie recommended on movie page 🎬"),D=u(),P=e("h2"),ks=i("Code"),F=u(),T=e("p"),rs=i("This change is using similar techniques as the “Version 0.0.3” change. Therefore there will just be a really quick rundown of the changed code."),$=u(),S=e("p"),ms=i("movie/[id]/+page.server.ts"),G=u(),d=e("pre"),K=u(),C=e("p"),vs=i("movie/[id]/+page.svelte"),U=u(),_=e("pre"),Y=u(),z=e("hr"),J=u(),N=e("br"),O=i(`
+Commit: `),v=e("a"),fs=i("Version 0.1.4"),Q=u(),M=e("p"),hs=i("Published: 2023-04-03"),this.h()},l(s){r=p(s,"H1",{});var n=l(r);Z=c(n,"Similarity is key"),n.forEach(a),x=k(s),g=p(s,"H2",{});var _s=l(g);ss=c(_s,"Description"),_s.forEach(a),L=k(s),b=p(s,"P",{});var gs=l(b);as=c(gs,"The movie page now shows movies that are similar to that one as well as BTS or other videos related to the movie"),gs.forEach(a),V=k(s),w=p(s,"H2",{});var bs=l(w);ns=c(bs,"Changes"),bs.forEach(a),A=k(s),E=p(s,"P",{});var ws=l(E);ts=c(ws,"The following changes and implementations have been made in that version of the project:"),ws.forEach(a),B=k(s),m=p(s,"UL",{});var W=l(m);f=p(W,"LI",{});var X=l(f);es=c(X,"Change "),h=p(X,"A",{href:!0,rel:!0});var Es=l(h);ps=c(Es,"themoviedb API"),Es.forEach(a),os=c(X," request to include recommended movies"),X.forEach(a),ls=k(W),j=p(W,"LI",{});var ys=l(j);is=c(ys,"Style the movies using the movie card component"),ys.forEach(a),W.forEach(a),I=k(s),y=p(s,"H2",{});var qs=l(y);cs=c(qs,"Features"),qs.forEach(a),R=k(s),q=p(s,"P",{});var Ps=l(q);us=c(Ps,"✅ Similar movie recommended on movie page 🎬"),Ps.forEach(a),D=k(s),P=p(s,"H2",{});var Ts=l(P);ks=c(Ts,"Code"),Ts.forEach(a),F=k(s),T=p(s,"P",{});var Ss=l(T);rs=c(Ss,"This change is using similar techniques as the “Version 0.0.3” change. Therefore there will just be a really quick rundown of the changed code."),Ss.forEach(a),$=k(s),S=p(s,"P",{});var Cs=l(S);ms=c(Cs,"movie/[id]/+page.server.ts"),Cs.forEach(a),G=k(s),d=p(s,"PRE",{class:!0});var As=l(d);As.forEach(a),K=k(s),C=p(s,"P",{});var Ms=l(C);vs=c(Ms,"movie/[id]/+page.svelte"),Ms.forEach(a),U=k(s),_=p(s,"PRE",{class:!0});var Bs=l(_);Bs.forEach(a),Y=k(s),z=p(s,"HR",{}),J=k(s),N=p(s,"BR",{}),O=c(s,`
+Commit: `),v=p(s,"A",{href:!0,target:!0});var Hs=l(v);fs=c(Hs,"Version 0.1.4"),Hs.forEach(a),Q=k(s),M=p(s,"P",{});var js=l(M);hs=c(js,"Published: 2023-04-03"),js.forEach(a),this.h()},h(){H(h,"href","https://developers.themoviedb.org/3"),H(h,"rel","nofollow"),H(d,"class","language-ts"),H(_,"class","language-html"),H(v,"href","https://github.com/hartmann-jonas/movie-db-two/commit/fb1246bddc01767d17b05ac751639f7d4f2e6666"),H(v,"target","_blank")},m(s,n){t(s,r,n),o(r,Z),t(s,x,n),t(s,g,n),o(g,ss),t(s,L,n),t(s,b,n),o(b,as),t(s,V,n),t(s,w,n),o(w,ns),t(s,A,n),t(s,E,n),o(E,ts),t(s,B,n),t(s,m,n),o(m,f),o(f,es),o(f,h),o(h,ps),o(f,os),o(m,ls),o(m,j),o(j,is),t(s,I,n),t(s,y,n),o(y,cs),t(s,R,n),t(s,q,n),o(q,us),t(s,D,n),t(s,P,n),o(P,ks),t(s,F,n),t(s,T,n),o(T,rs),t(s,$,n),t(s,S,n),o(S,ms),t(s,G,n),t(s,d,n),d.innerHTML=Ls,t(s,K,n),t(s,C,n),o(C,vs),t(s,U,n),t(s,_,n),_.innerHTML=Vs,t(s,Y,n),t(s,z,n),t(s,J,n),t(s,N,n),t(s,O,n),t(s,v,n),o(v,fs),t(s,Q,n),t(s,M,n),o(M,hs)},p:ds,i:ds,o:ds,d(s){s&&a(r),s&&a(x),s&&a(g),s&&a(L),s&&a(b),s&&a(V),s&&a(w),s&&a(A),s&&a(E),s&&a(B),s&&a(m),s&&a(I),s&&a(y),s&&a(R),s&&a(q),s&&a(D),s&&a(P),s&&a(F),s&&a(T),s&&a($),s&&a(S),s&&a(G),s&&a(d),s&&a(K),s&&a(C),s&&a(U),s&&a(_),s&&a(Y),s&&a(z),s&&a(J),s&&a(N),s&&a(O),s&&a(v),s&&a(Q),s&&a(M)}}}const Gs={title:"Version 0.1.4",date:"2023-04-03"};class Ks extends Is{constructor(r){super(),Rs(this,r,null,Fs,Ds,{})}}export{Ks as default,Gs as metadata};

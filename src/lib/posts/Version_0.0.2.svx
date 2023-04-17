@@ -4,7 +4,7 @@ date: "2023-04-03"
 ---
 # Login
 ## Description
-After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. My teacher recommended this [tutorial](https://youtu.be/E3VG-dLCRUk) by Joy of Code to me on how to implement this functionality using cookies and a prisma database.
+After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. This [tutorial](https://youtu.be/E3VG-dLCRUk) by Joy of Code was recommended to me on how to implement this functionality using cookies and a prisma database. I used this starting point to get familiar with prisma and databases in general.
 
 ## Changes
 The following changes and implementations have been made in that version of the project:
@@ -16,6 +16,106 @@ To get a better view on how the login functionality works, watch the [tutorial](
 
 ## Features
 ✅ Login/Register 🧑‍💻  
+
+## Code
+In here some selected code will be explained more in depth.
+
+schema.prisma file to structure the database
+```ts
+// define database provider that we use
+datasource db {
+    provider = "sqlite"
+    // url is stored in .env file so that users cant see the url
+    url      = env("DATABASE_URL")
+}
+
+// define the database tabels referred to as models
+model User {
+    // unique individual id for each user
+    id              String @id @unique @default(uuid())
+    // no username can be taken twice
+    username        String @unique
+    // hash of the password to not store a clear password
+    passwordHash    String
+    // unique token used for the cookie
+    userAuthToken   String @unique
+
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    // assign a role to the user used to seperate users and admins
+    // using prisma relations to reference the Roles model
+    // pointing to the id in the Roles model
+    role        Roles   @relation(fields: [roleId], references: [id])
+    roleId      Int
+}
+
+model Roles {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  User User[]
+}
+```
+
+login/+page.server.ts to handle the login process
+```ts
+// function to redirect users that are logged away from the login page
+export const load: PageServerLoad = async ({ locals }) => {
+  // redirect user if logged in
+  if (locals.user) {
+    throw redirect(302, '/')
+  }
+}
+
+// first we request the username and password from the html form
+const username = data.get('username')
+const password = data.get('password')
+
+// check if somebody trys to bamboozle us
+// if a username/password is not a string or nonexistent fail
+if (
+    typeof username !== 'string' ||
+    typeof password !== 'string' ||
+    !username ||
+    !password
+) {
+    return fail(400, { invalid: true })
+}
+
+// if that worked we request the user from the database
+const user = await database.user.findUnique({ where: { username } })
+
+// now we also need to import the database on the top
+import { database } from '$lib/database'
+
+// now we compare the password entered and the password from the database
+const userPassword = await bcrypt.compare(password, user.passwordHash)
+
+// if that fails we return fail and say wrong credentials
+return fail(400, {credentials: true})
+
+// if everything went well so far
+// we create a new authentification token in the database
+const authenticatedUser = await database.user.update({
+    where: { username: user.username },
+    data: { userAuthToken: crypto.randomUUID() },
+})
+
+// set the cookie to keep the user logged in for one moth
+cookies.set('session', authenticatedUser.userAuthToken, {
+    // send cookie for every page
+    path: '/',
+    // server side only cookie so you can't use `document.cookie`
+    httpOnly: true,
+    // only requests from same site can send cookies
+    // https://developer.mozilla.org/en-US/docs/Glossary/CSRF
+    sameSite: 'strict',
+    // only sent over HTTPS in production
+    secure: process.env.NODE_ENV === 'production',
+    // set cookie to expire after a month
+    maxAge: 60 * 60 * 24 * 30,
+})
+
+```
 
 <hr>
 <br>

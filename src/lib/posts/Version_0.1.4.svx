@@ -1,5 +1,5 @@
 ---
-title: Version 0.1.3
+title: Version 0.1.4
 date: "2023-04-03"
 ---
 # Similarity is key
@@ -15,8 +15,52 @@ The following changes and implementations have been made in that version of the 
 ## Features
 ✅ Similar movie recommended on movie page 🎬
 
+## Code
+This change is using similar techniques as the "Version 0.0.3" change. Therefore there will just be a really quick rundown of the changed code.
+
+movie/[id]/+page.server.ts
+```ts
+// append 'recommended' to the fetch url to include 'recommended'
+const response = await fetch(
+		`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.TMDB_API_KEY}&append_to_response=videos,keywords,recommendations`
+)
+```
+
+movie/[id]/+page.svelte
+```html
+<script>
+    // assign the recommended movies to a new variable
+    // limit the recommendedMovies to 10 to reduce loading times
+    let recommendedMovies = data.props.movieDetail.recommendations.result.slice(0,10)
+</script>
+
+<!--Loop over all recommendedMovies and create iframes to show the videos-->
+{#if recommendedMovies.length > 0}
+    <div class="related-movies">
+	    <h4 class="title-text">Related Movies:</h4>
+        <div class="movies">
+            {#each recommendedMovies as movie}
+            <div class="movie-cards m-3">
+                <div class="movie-card">
+                    <a data-sveltekit-noscroll href={'/movie/' + movie.id} target="_self">
+                    {#if typeof movie.poster_path == 'string'}
+                        <img class="movie-card-image" src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt={movie.title} />
+                    {:else}
+                        <div class="no-img">
+                            <p class="no-img-available">no image available</p>
+                        </div>
+                    {/if}
+                    </a>
+                </div>
+            </div>
+            {/each}
+	    </div>
+    </div>
+{/if}
+```
+
 <hr>
 <br>
-Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/fb1246bddc01767d17b05ac751639f7d4f2e6666" target="_blank">Version 0.1.3</a>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/fb1246bddc01767d17b05ac751639f7d4f2e6666" target="_blank">Version 0.1.4</a>
 
 Published: 2023-04-03

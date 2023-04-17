@@ -1,64 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="content-security-policy" content="">
-		<link href="../_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/_page-d97f4a66.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-de550a14.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-b0905f39.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-4e3a929d.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index-4b71bf5b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/preload-helper-41c905a7.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/control-e7f5239e.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/parse-b67c4dc9.js">
-		<link rel="modulepreload" href="../_app/immutable/components/layout.svelte-afe953a1.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_layout.svelte-3bb0ca78.js">
-		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_path_/_page.svelte-408e1e2a.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-1f21e031.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-dd6bd23a.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
-        margin-left: 10%;
-        margin-right: 10%;
-      }
-    </style><!-- HEAD_svelte-3vh2vb_END -->
-	</head>
-	<body>
-		<div>
-
-
-
-  
-  <main class="container"><nav><ul><li><a href="/">Maja Webutveckling 2</a></li>
-        <li><a href="/clicker">Clicker</a></li>
-        <li><a href="/todo">Todo-List</a></li>
-        <li><a href="/eliza">ElizaBot</a></li>
-        <li><a href="/memory">Memory</a></li>
-        <li><a href="/search">API Search</a></li>
-        <li><a href="/blog">Blog</a></li></ul></nav>
-    
-
-  
-<article class="svelte-1viwzin"><div class="head svelte-1viwzin"><h1 class="svelte-1viwzin">Version 0.0.2</h1>
-        <p class="svelte-1viwzin">Last updated: 2023-04-03</p></div>
-    <div class="article svelte-1viwzin"><h1>Login</h1>
-<h2>Description</h2>
-<p>After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. This <a href="https://youtu.be/E3VG-dLCRUk" rel="nofollow">tutorial</a> by Joy of Code was recommended to me on how to implement this functionality using cookies and a prisma database. I used this starting point to get familiar with prisma and databases in general.</p>
-<h2>Changes</h2>
-<p>The following changes and implementations have been made in that version of the project:</p>
-<ul><li>Installed <a href="https://prisma.io" rel="nofollow">Prisma</a> and created a client with a SQLite database.</li>
-<li>When user is logged in a cookie is created that saves the current session for 30 days</li>
-<li>Use <a href="https://kit.svelte.dev/docs/hooks" rel="nofollow">SvelteKit Hooks</a> to store the session for checking if the user is logged in</li></ul>
-<p>To get a better view on how the login functionality works, watch the <a href="https://youtu.be/E3VG-dLCRUk" rel="nofollow">tutorial</a>.</p>
-<h2>Features</h2>
-<p>✅ Login/Register 🧑‍💻  </p>
-<h2>Code</h2>
-<p>In here some selected code will be explained more in depth.</p>
-<p>schema.prisma file to structure the database</p>
-<pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token comment">// define database provider that we use</span>
+import{S as tn,i as en,s as on,k as o,q as p,a as r,l as c,m as i,r as l,h as n,c as u,n as k,b as t,G as e,B as xs}from"./index-b0905f39.js";function pn(Ys){let d,ls,G,P,is,j,m,rs,v,us,ks,B,S,fs,F,I,ds,z,f,y,ms,b,hs,ws,vs,V,ys,bs,_,_s,E,Es,gs,J,h,Ts,g,As,Ps,K,L,Ss,M,U,Is,N,R,Ls,O,q,Us,Q,H,Rs,W,T,Zs=`<code class="language-ts"><span class="token comment">// define database provider that we use</span>
 datasource db <span class="token punctuation">&#123;</span>
     provider <span class="token operator">=</span> <span class="token string">"sqlite"</span>
     <span class="token comment">// url is stored in .env file so that users cant see the url</span>
@@ -89,9 +29,7 @@ model Roles <span class="token punctuation">&#123;</span>
   id   Int    <span class="token decorator"><span class="token at operator">@</span><span class="token function">id</span></span> @<span class="token keyword">default</span><span class="token punctuation">(</span><span class="token function">autoincrement</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   name String <span class="token decorator"><span class="token at operator">@</span><span class="token function">unique</span></span>
   User User<span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
-<p>login/+page.server.ts to handle the login process</p>
-<pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token comment">// function to redirect users that are logged away from the login page</span>
+<span class="token punctuation">&#125;</span></code>`,$,C,qs,X,A,sn=`<code class="language-ts"><span class="token comment">// function to redirect users that are logged away from the login page</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> load<span class="token operator">:</span> <span class="token function-variable function">PageServerLoad</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">&#123;</span> locals <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token comment">// redirect user if logged in</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>locals<span class="token punctuation">.</span>user<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -147,36 +85,6 @@ cookies<span class="token punctuation">.</span><span class="token function">set<
     <span class="token comment">// set cookie to expire after a month</span>
     maxAge<span class="token operator">:</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">30</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-</code><!-- HTML_TAG_END --></pre>
-<hr>
-<br>
-Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/c2b56d39d412752416717362c337289abdf3c189" target="_blank">Version 0.0.2</a>
-<p>Published: 2023-04-03</p></div>
-</article></main>
-
-
-		<script type="module" data-sveltekit-hydrate="1kq8dbv">
-			import { start } from "../_app/immutable/start-de550a14.js";
-
-			start({
-				env: {},
-				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1kq8dbv"]').parentNode,
-				version: "1681722850749",
-				hydrate: {
-					node_ids: [0, 2, 7],
-					data: [null,null,null],
-					form: null,
-					error: null
-				}
-			});
-		</script>
-	</div>
-	</body>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
-</html>
+</code>`,Y,Z,ss,ns,as,w,Hs,ts,x,Cs;return{c(){d=o("h1"),ls=p("Login"),G=r(),P=o("h2"),is=p("Description"),j=r(),m=o("p"),rs=p("After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. This "),v=o("a"),us=p("tutorial"),ks=p(" by Joy of Code was recommended to me on how to implement this functionality using cookies and a prisma database. I used this starting point to get familiar with prisma and databases in general."),B=r(),S=o("h2"),fs=p("Changes"),F=r(),I=o("p"),ds=p("The following changes and implementations have been made in that version of the project:"),z=r(),f=o("ul"),y=o("li"),ms=p("Installed "),b=o("a"),hs=p("Prisma"),ws=p(" and created a client with a SQLite database."),vs=r(),V=o("li"),ys=p("When user is logged in a cookie is created that saves the current session for 30 days"),bs=r(),_=o("li"),_s=p("Use "),E=o("a"),Es=p("SvelteKit Hooks"),gs=p(" to store the session for checking if the user is logged in"),J=r(),h=o("p"),Ts=p("To get a better view on how the login functionality works, watch the "),g=o("a"),As=p("tutorial"),Ps=p("."),K=r(),L=o("h2"),Ss=p("Features"),M=r(),U=o("p"),Is=p("✅ Login/Register 🧑‍💻"),N=r(),R=o("h2"),Ls=p("Code"),O=r(),q=o("p"),Us=p("In here some selected code will be explained more in depth."),Q=r(),H=o("p"),Rs=p("schema.prisma file to structure the database"),W=r(),T=o("pre"),$=r(),C=o("p"),qs=p("login/+page.server.ts to handle the login process"),X=r(),A=o("pre"),Y=r(),Z=o("hr"),ss=r(),ns=o("br"),as=p(`
+Commit: `),w=o("a"),Hs=p("Version 0.0.2"),ts=r(),x=o("p"),Cs=p("Published: 2023-04-03"),this.h()},l(s){d=c(s,"H1",{});var a=i(d);ls=l(a,"Login"),a.forEach(n),G=u(s),P=c(s,"H2",{});var Ds=i(P);is=l(Ds,"Description"),Ds.forEach(n),j=u(s),m=c(s,"P",{});var es=i(m);rs=l(es,"After having a good starting point and some inspiration I worked on some login functionality on the website. That way every different user could have the website presented to him in a different way. This "),v=c(es,"A",{href:!0,rel:!0});var Vs=i(v);us=l(Vs,"tutorial"),Vs.forEach(n),ks=l(es," by Joy of Code was recommended to me on how to implement this functionality using cookies and a prisma database. I used this starting point to get familiar with prisma and databases in general."),es.forEach(n),B=u(s),S=c(s,"H2",{});var Gs=i(S);fs=l(Gs,"Changes"),Gs.forEach(n),F=u(s),I=c(s,"P",{});var js=i(I);ds=l(js,"The following changes and implementations have been made in that version of the project:"),js.forEach(n),z=u(s),f=c(s,"UL",{});var D=i(f);y=c(D,"LI",{});var os=i(y);ms=l(os,"Installed "),b=c(os,"A",{href:!0,rel:!0});var Bs=i(b);hs=l(Bs,"Prisma"),Bs.forEach(n),ws=l(os," and created a client with a SQLite database."),os.forEach(n),vs=u(D),V=c(D,"LI",{});var Fs=i(V);ys=l(Fs,"When user is logged in a cookie is created that saves the current session for 30 days"),Fs.forEach(n),bs=u(D),_=c(D,"LI",{});var ps=i(_);_s=l(ps,"Use "),E=c(ps,"A",{href:!0,rel:!0});var zs=i(E);Es=l(zs,"SvelteKit Hooks"),zs.forEach(n),gs=l(ps," to store the session for checking if the user is logged in"),ps.forEach(n),D.forEach(n),J=u(s),h=c(s,"P",{});var cs=i(h);Ts=l(cs,"To get a better view on how the login functionality works, watch the "),g=c(cs,"A",{href:!0,rel:!0});var Js=i(g);As=l(Js,"tutorial"),Js.forEach(n),Ps=l(cs,"."),cs.forEach(n),K=u(s),L=c(s,"H2",{});var Ks=i(L);Ss=l(Ks,"Features"),Ks.forEach(n),M=u(s),U=c(s,"P",{});var Ms=i(U);Is=l(Ms,"✅ Login/Register 🧑‍💻"),Ms.forEach(n),N=u(s),R=c(s,"H2",{});var Ns=i(R);Ls=l(Ns,"Code"),Ns.forEach(n),O=u(s),q=c(s,"P",{});var Os=i(q);Us=l(Os,"In here some selected code will be explained more in depth."),Os.forEach(n),Q=u(s),H=c(s,"P",{});var Qs=i(H);Rs=l(Qs,"schema.prisma file to structure the database"),Qs.forEach(n),W=u(s),T=c(s,"PRE",{class:!0});var nn=i(T);nn.forEach(n),$=u(s),C=c(s,"P",{});var Ws=i(C);qs=l(Ws,"login/+page.server.ts to handle the login process"),Ws.forEach(n),X=u(s),A=c(s,"PRE",{class:!0});var an=i(A);an.forEach(n),Y=u(s),Z=c(s,"HR",{}),ss=u(s),ns=c(s,"BR",{}),as=l(s,`
+Commit: `),w=c(s,"A",{href:!0,target:!0});var $s=i(w);Hs=l($s,"Version 0.0.2"),$s.forEach(n),ts=u(s),x=c(s,"P",{});var Xs=i(x);Cs=l(Xs,"Published: 2023-04-03"),Xs.forEach(n),this.h()},h(){k(v,"href","https://youtu.be/E3VG-dLCRUk"),k(v,"rel","nofollow"),k(b,"href","https://prisma.io"),k(b,"rel","nofollow"),k(E,"href","https://kit.svelte.dev/docs/hooks"),k(E,"rel","nofollow"),k(g,"href","https://youtu.be/E3VG-dLCRUk"),k(g,"rel","nofollow"),k(T,"class","language-ts"),k(A,"class","language-ts"),k(w,"href","https://github.com/hartmann-jonas/movie-db-two/commit/c2b56d39d412752416717362c337289abdf3c189"),k(w,"target","_blank")},m(s,a){t(s,d,a),e(d,ls),t(s,G,a),t(s,P,a),e(P,is),t(s,j,a),t(s,m,a),e(m,rs),e(m,v),e(v,us),e(m,ks),t(s,B,a),t(s,S,a),e(S,fs),t(s,F,a),t(s,I,a),e(I,ds),t(s,z,a),t(s,f,a),e(f,y),e(y,ms),e(y,b),e(b,hs),e(y,ws),e(f,vs),e(f,V),e(V,ys),e(f,bs),e(f,_),e(_,_s),e(_,E),e(E,Es),e(_,gs),t(s,J,a),t(s,h,a),e(h,Ts),e(h,g),e(g,As),e(h,Ps),t(s,K,a),t(s,L,a),e(L,Ss),t(s,M,a),t(s,U,a),e(U,Is),t(s,N,a),t(s,R,a),e(R,Ls),t(s,O,a),t(s,q,a),e(q,Us),t(s,Q,a),t(s,H,a),e(H,Rs),t(s,W,a),t(s,T,a),T.innerHTML=Zs,t(s,$,a),t(s,C,a),e(C,qs),t(s,X,a),t(s,A,a),A.innerHTML=sn,t(s,Y,a),t(s,Z,a),t(s,ss,a),t(s,ns,a),t(s,as,a),t(s,w,a),e(w,Hs),t(s,ts,a),t(s,x,a),e(x,Cs)},p:xs,i:xs,o:xs,d(s){s&&n(d),s&&n(G),s&&n(P),s&&n(j),s&&n(m),s&&n(B),s&&n(S),s&&n(F),s&&n(I),s&&n(z),s&&n(f),s&&n(J),s&&n(h),s&&n(K),s&&n(L),s&&n(M),s&&n(U),s&&n(N),s&&n(R),s&&n(O),s&&n(q),s&&n(Q),s&&n(H),s&&n(W),s&&n(T),s&&n($),s&&n(C),s&&n(X),s&&n(A),s&&n(Y),s&&n(Z),s&&n(ss),s&&n(ns),s&&n(as),s&&n(w),s&&n(ts),s&&n(x)}}}const ln={title:"Version 0.0.2",date:"2023-04-03"};class rn extends tn{constructor(d){super(),en(this,d,null,pn,on,{})}}export{rn as default,ln as metadata};

@@ -16,6 +16,79 @@ The following changes and implementations have been made in that version of the 
 ## Features
 ✅ Favourite movies ❤️  
 
+## Code
+In here some selected code will be explained more in depth.
+
+schema.prisma
+```ts
+// Update the User table to have a relation to the Movie table
+model User {
+    favourite_movies    Movie[]
+}
+
+// create the Movie model to store the favourited movies
+// this model includes the id of the movie and the relation to the users
+model Movie {
+    id    Int      @id @default(autoincrement()) @unique
+    favourited_by  User[]
+}
+```
+
+movie/[id]/+page.server.ts
+```ts
+// when loading the movie page
+export const load: PageServerLoad = async ({params,locals}) => {
+    let favourited = undefined
+    // if a user is logged in query the database and check if the movie
+    // has a relation to the user
+    if (locals.user.id) {
+        const movieId = Number(params.id)
+        const userId = locals.user.id
+        const result = await database.user.findUnique({
+            // go to currently logged in user
+            where: {
+                id: userId
+            },
+            select: {
+                favourite_movies: {
+                    where: {
+                        id: movieId
+                    }
+                }
+            }
+        })
+        // if the user has that movie make favourited true
+        if (result) {
+            // we do that by checking if the length of the results
+            // is greater 0
+            favourited = result.favourite_movies.length>0
+        }
+    }
+}
+
+
+// when hitting the save button
+export const actions: Action = {
+    saveMovie: async ({ locals, params }) => {
+        // check if user is logged in - query database for the movie
+        // we can use connectOrCreate to connect or create the movie
+        // in the movie table and connect it to the user table
+        [...]
+        connectOrCreate: {
+            where: {
+                id: movieId
+            },
+            create: {
+                id: movieId
+            }
+        }
+        [...]
+        // after that we are sure that the user is connected to the movie
+        // under all circumstances
+    }
+}
+```
+
 <hr>
 <br>
 Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/07fdee50f684c2a043ba4f1ba89fe64f684883d1" target="_blank">Version 0.1.2</a>

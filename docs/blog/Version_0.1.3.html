@@ -7,7 +7,7 @@
 		<meta http-equiv="content-security-policy" content="">
 		<link href="../_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/_page-d97f4a66.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-15ca1b0d.js">
+		<link rel="modulepreload" href="../_app/immutable/start-de550a14.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-b0905f39.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-4e3a929d.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-4b71bf5b.js">
@@ -19,8 +19,8 @@
 		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_layout.svelte-3bb0ca78.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_path_/_page.svelte-408e1e2a.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-45c9f4ca.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-23ee8f06.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
+		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-1f21e031.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_page-dd6bd23a.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
         margin-left: 10%;
         margin-right: 10%;
       }
@@ -55,6 +55,15 @@
 <h2>Features</h2>
 <p>✅ Likes for movies 👍<br>
 ✅ New UI ✨  </p>
+<h2>Code</h2>
+<p>Regarding the code the changes are basically the same as the ones made to implement the save feature. Therefore there will be just pseudo code provided.<br>
+So if you want to know how the likes work please refer to the “Version 0.1.2” entry with the following additions.</p>
+<p>The UI just included a bunch of css that is to repetitive to explain here.</p>
+<ul><li>Add a another relation between the Movie and the User model with the name <code>liked_movies</code> and <code>liked_by</code></li>
+<li>On the movie page include the same save and unsave function as in “Version 0.1.2”</li>
+<li>In the PageServerLoad function query the database for the length of the array of users that have liked the movie and return it in the props</li>
+<li>To like a movie use the same principal as the save function</li>
+<li>To unlike a movie just delete the connection between the User and the Movie</li></ul>
 <hr>
 <br>
 Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/36e73e65f6b76b8c8f86854c62a011b41975b292" target="_blank">Version 0.1.3</a>
@@ -62,14 +71,14 @@ Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/36e73e65f
 </article></main>
 
 
-		<script type="module" data-sveltekit-hydrate="shu8sw">
-			import { start } from "../_app/immutable/start-15ca1b0d.js";
+		<script type="module" data-sveltekit-hydrate="ir0sca">
+			import { start } from "../_app/immutable/start-de550a14.js";
 
 			start({
 				env: {},
 				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="shu8sw"]').parentNode,
-				version: "1680520318657",
+				target: document.querySelector('[data-sveltekit-hydrate="ir0sca"]').parentNode,
+				version: "1681722850749",
 				hydrate: {
 					node_ids: [0, 2, 7],
 					data: [null,null,null],

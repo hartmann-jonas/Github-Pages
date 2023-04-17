@@ -4,7 +4,7 @@ date: "2023-04-03"
 ---
 # Recommendations
 ## Description
-In Version 0.2.0 personal recommendations are added, the user will get individualized recommendations for him based on his own interests.
+In Version 0.2.0 personal recommendations are added, the user will get individualized recommendations for him based on his own interests. You can find them on the profile/recommended path!
 
 ## Changes
 The following changes and implementations have been made in that version of the project:
@@ -21,10 +21,98 @@ How do we get the recommended movies?
 
 
 ## Features
-✅ Individualized recommendations ✨🎁     
+✅ Individualized recommendations ✨🎁 
+
+## Code
+In order to include the recommendations we needed some big changes under the hood.  
+Here are some of them.
+
+schema.prisma
+```ts
+// create a new model keywords that holds all of the keywords
+// with their id and connect them to movies that have that keyword
+model Keywords {
+    id      Int     @id @unique @default(autoincrement())
+    keyword String
+    movie   Movie[]
+}
+
+// connect the Keyword model to the Movie model
+model Movie {
+    [...]
+    keywords    Keywords[]
+}
+```
+
+profile/recommended/+page.server.ts
+```ts
+// first we query the keywords a user has liked like the following
+const movies = await database.movie.findMany({
+    where: {
+        likes: {
+            some: {
+                id: userId
+            }
+        }
+    },
+    include: {
+        keywords: true
+    }
+});
+// push the ids of the keywords into the keywords array
+movies.forEach(movie => {
+    movie.keywors.forEach(keyword => {
+        keywords.push(keyword.id)
+    });
+});
+
+// this part sorts the pushes the keywords into the keywordsList
+
+keywords.forEach((keyword) => {
+	let existing = genresList.find((r) => r.id === keyword);
+	if (existing) {
+	    existing.occurrences++;
+	} else {
+	    keywordsList.push({ id: keyword, occurrences: 1 });
+	}
+});
+
+
+// this creates an array like this:
+let arr = [
+    {
+        id: '421',
+        occurrences: 3
+    },
+    [...]
+]
+
+// now the keywords need to be sorted based on decending occurences
+// then we slice the array to the first 3 keywords
+// after that we map the ids into an string seperated by commas
+let keywordString = topKeywords.map((t) => t.id).join(',');
+
+
+// this string is being put into the url that we are fetching
+// as "with_keywords"
+// this is our final url
+const response = await fetch(
+	`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&with_runtime.gte=75&with_keywords=${keywordString}`
+);
+
+// now we need to filter out the movies that the user already
+// knows from the results
+recommendedMovies = recommendedMovies.filter((movie: { id: number; }) => !liked_movies.find((f) => f.id === movie.id));
+
+// we also filter out the movies that have less than 100 votes
+// since the database contains a lot of weird short films
+recommendedMovies = recommendedMovies.filter((movie: {vote_count: number; }) => movie.vote_count > 100)
+
+// that pretty much sums up how you get the individual recommendations
+```
 
 <hr>
 <br>
-Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/951a804edac393080bdcddab50066ee9ea9ec0c6" target="_blank">Version 0.2.</a>
+Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/951a804edac393080bdcddab50066ee9ea9ec0c6" target="_blank">Version 0.2.0</a>
 
 Published: 2023-04-03

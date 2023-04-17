@@ -9,6 +9,8 @@ Optimization of the Recommender System. The fact that often no recommendation co
 To change this, we switched from keywords to genres, because there is more overlap. However, the recommendations are still accurate and relevant.
 
 ## Changes
+The changes are the same as in "Version 0.2.0" but with renamed variables and changed URLs.
+
 The following changes and implementations have been made in that version of the project:
 * Big changes to the database
     * New model "Genres"
@@ -26,7 +28,11 @@ Bug fixes:
 
 
 ## Features
-✅ Better recommendations 🛠️     
+✅ Better recommendations 🛠️  
+
+## Code
+The changes are the same as in "Version 0.2.0" but with renamed variables and changed URLs.  
+No new code description neccessary.
 
 <hr>
 <br>

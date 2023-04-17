@@ -18,6 +18,18 @@ The following changes and implementations have been made in that version of the 
 ✅ Likes for movies 👍  
 ✅ New UI ✨  
 
+## Code
+Regarding the code the changes are basically the same as the ones made to implement the save feature. Therefore there will be just pseudo code provided.  
+So if you want to know how the likes work please refer to the "Version 0.1.2" entry with the following additions.
+
+The UI just included a bunch of css that is to repetitive to explain here.
+
+* Add a another relation between the Movie and the User model with the name `liked_movies` and `liked_by`
+* On the movie page include the same save and unsave function as in "Version 0.1.2"
+* In the PageServerLoad function query the database for the length of the array of users that have liked the movie and return it in the props
+* To like a movie use the same principal as the save function
+* To unlike a movie just delete the connection between the User and the Movie
+
 <hr>
 <br>
 Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/36e73e65f6b76b8c8f86854c62a011b41975b292" target="_blank">Version 0.1.3</a>

@@ -7,7 +7,7 @@
 		<meta http-equiv="content-security-policy" content="">
 		<link href="../_app/immutable/assets/_layout-8003c18b.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/_page-d97f4a66.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/start-15ca1b0d.js">
+		<link rel="modulepreload" href="../_app/immutable/start-de550a14.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-b0905f39.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/singletons-4e3a929d.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index-4b71bf5b.js">
@@ -19,8 +19,8 @@
 		<link rel="modulepreload" href="../_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_layout.svelte-3bb0ca78.js">
 		<link rel="modulepreload" href="../_app/immutable/components/pages/blog/_path_/_page.svelte-408e1e2a.js">
-		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-45c9f4ca.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/_page-23ee8f06.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
+		<link rel="modulepreload" href="../_app/immutable/modules/pages/blog/_path_/_page.js-1f21e031.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/_page-dd6bd23a.js"><!-- HEAD_svelte-3vh2vb_START --><link rel="stylesheet" href="/pico.min.css"><style>nav {
         margin-left: 10%;
         margin-right: 10%;
       }
@@ -50,10 +50,22 @@
 Additionally I also changed the design of the login and register form to be more pleasing.</p>
 <h2>Changes</h2>
 <p>The following changes and implementations have been made in that version of the project:</p>
-<ul><li>Added <a href="https://vercel.com/docs/concepts/analytics/audiences/quickstart" rel="nofollow">Vercel Audience Analytics</a></li>
-<li>UI change on the login/refister form</li></ul>
+<ul><li>Added <a href="https://vercel.com/docs/concepts/analytics/audiences/quickstart" rel="nofollow">Vercel Audience Analytics</a> (SvelteKit)</li>
+<li>UI change on the login/register form</li></ul>
 <h2>Features</h2>
-<p>✅ Audience Analytics 👀       </p>
+<p>✅ Audience Analytics 👀   </p>
+<h2>Code</h2>
+<p>Nothing too interesting happened in this change. Just implementing the analytics the documented way.<br>
+Plus lots of boring css that is not worth sharing.</p>
+<p>package.json (npm i @vercel/analytics)</p>
+<pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token property">"@vercel/analytics"</span><span class="token operator">:</span> <span class="token string">"^0.1.8"</span><span class="token punctuation">,</span></code><!-- HTML_TAG_END --></pre>
+<p>+layout.svelte</p>
+<pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ts<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+    <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> dev <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'$app/environment'</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token punctuation">&#123;</span> inject <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@vercel/analytics'</span><span class="token punctuation">;</span>
+
+    <span class="token function">inject</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">mode</span><span class="token operator">:</span> dev <span class="token operator">?</span> <span class="token string">'development'</span> <span class="token operator">:</span> <span class="token string">'production'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code><!-- HTML_TAG_END --></pre>
 <hr>
 <br>
 Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/747c585cdeb6235b7b43bed4466e78d528801d16" target="_blank">Version 0.1.1 (1)</a> <a href="https://github.com/hartmann-jonas/movie-db-two/commit/f72057a2aa39600f2fb1dc0646205929d77d3676" target="_blank">Version 0.1.1 (2)</a>
@@ -61,14 +73,14 @@ Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/747c585cd
 </article></main>
 
 
-		<script type="module" data-sveltekit-hydrate="1izit4t">
-			import { start } from "../_app/immutable/start-15ca1b0d.js";
+		<script type="module" data-sveltekit-hydrate="1t42wjg">
+			import { start } from "../_app/immutable/start-de550a14.js";
 
 			start({
 				env: {},
 				paths: {"assets":"","base":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1izit4t"]').parentNode,
-				version: "1680520318657",
+				target: document.querySelector('[data-sveltekit-hydrate="1t42wjg"]').parentNode,
+				version: "1681722850749",
 				hydrate: {
 					node_ids: [0, 2, 7],
 					data: [null,null,null],

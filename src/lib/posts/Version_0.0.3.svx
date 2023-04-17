@@ -17,6 +17,99 @@ Bug fixes:
 ## Features
 ✅ Movie availability 🌍  
 
+## Code
+In here some selected code will be explained more in depth.
+
+movie/[id]/+page.svelte
+```html
+<script lang="ts">
+    import { page } from '$app/stores';
+
+    export let data: PageServerData;
+    // list of countries that the user can select from
+    const countries = [
+        {index: 1, name: "Sweden", code:"SE"},
+        {index: 2, name: "Germany", code:"DE"},
+        {index: 3, name: "Austria", code:"AT"},
+        {index: 4, name: "Switzerland", code:"CH"},
+        {index: 5, name: "Canada", code:"CA"},
+        {index: 6, name: "USA", code:"US"}
+    ]
+</script>
+
+<div id="movie-providers" class="providers">
+    <div class="selText">
+        <h4 class="title-text">Watch at:</h4>
+        <form class="selCountry" on:change={changeCountry}>
+            <label for="country">select country:</label>
+            <!--Use svelte bindings to bind the selected country to the select element-->
+            <select name="country" id="country" bind:value={selected}>
+                <!--Loop over each country that is defined in the country variable-->
+                {#each countries as country}
+                    <option value={country}>
+                        {country.name}
+                    </option>
+                {/each}
+            </select>
+        </form>
+    </div>
+    <!--Check for each attribute of the details if it is available if so
+    use the svelte {#each} to loop over each provider and display the icon-->
+    {#if details}
+        {#if details.flatrate}
+        <p>Flatrate</p>
+            {#each details.flatrate as test}
+            <img class="provider-logo" src="https://image.tmdb.org/t/p/w500{test.logo_path}" alt="logo">
+            {/each}
+        {/if}
+        {#if details.buy}
+        <p>Buy</p>
+            {#each details.buy as test}
+            <img class="provider-logo" src="https://image.tmdb.org/t/p/w500{test.logo_path}" alt="logo">
+            {/each}
+        {/if}
+        {#if details.rent}
+        <p>Rent</p>
+            {#each details.rent as test}
+            <img class="provider-logo" src="https://image.tmdb.org/t/p/w500{test.logo_path}" alt="logo">
+            {/each}
+        {/if}
+        {#if details.free}
+        <p>Free</p>
+            {#each details.free as test}
+            <img class="provider-logo" src="https://image.tmdb.org/t/p/w500{test.logo_path}" alt="logo">
+            {/each}
+        {/if}
+    {:else}
+    <p>Not available in {selected.name}</p>
+    {/if}
+</div>
+````
+
+movie/[id]/+page.server.ts
+```ts
+// we need to add the provider request to our http GET request
+// so we add another fetch() behind the first
+
+const resAvailability = await fetch(
+ 	`https://api.themoviedb.org/3/movie/${params.id}/watch/providers?api_key=${process.env.TMDB_API_KEY}`
+);
+
+// now we convert the response to json if it was ok
+if(resAvailability.ok) {
+    const movieAvailability = await resAvailability.json();
+}
+
+// in the end we add the availability to the returned props
+return {
+    props: {
+        movieAvailability,
+        ...
+    }
+}
+
+```
+
 <hr>
 <br>
 Commit: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/7887de9940fc4394b4b60dbaf870c35a7d867bb2" target="_blank">Version 0.0.3</a>

@@ -15,7 +15,34 @@ The following changes and implementations have been made in that version of the 
 
 ## Features
 ✅ Hosting on Vercel 🎉  
-✅ New PostgreSQL database 🔐      
+✅ New PostgreSQL database 🔐  
+
+## Code
+In here some selected code will be explained more in depth.
+
+login/+page.svelte
+```html
+<script lang="ts">
+    // define signin false by default
+    let signin = false
+</script>
+
+{#if signin}
+    <!--Show the loading icon inside the form-->
+{:else}
+    <form use:enhance={({})=>{
+        <!--On submit make the signin true and show the loading icon-->
+        signin = true
+        return async ({result, update}) => {
+          if(result.type!="redirect") {
+            signin = false
+          }
+          update()
+        }
+        }} action="?/login" method="POST">
+    <!--Show the regular form-->
+{/if}
+```
 
 <hr>
 <br>

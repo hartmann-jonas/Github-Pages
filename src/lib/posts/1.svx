@@ -50,11 +50,23 @@ Some more descriptive text about changes in detail
 ✅ Cool new feature ✨  
 ✅ Another mediocre feature 🎉  
 
+## Code
+In here some selected code will be explained more in depth.
+´´´ts
+function foo() {
+    return 'bar'
+}
+´´´
 <hr>
 <br>
-Commit: [Version x.x.x](link to commit)
+Commit: <a href="<<link to commit>>" target="_blank">Version x.x.x</a>
 
 Published: 2023-xx-xx
 ```
+
+
+<hr>
 <br>
+Repo: <a href="https://github.com/hartmann-jonas/movie-db-two" target="_blank">github.com</a>
+
 Published: 2023-04-03

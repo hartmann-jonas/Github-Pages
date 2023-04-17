@@ -9,12 +9,32 @@ Additionally I also changed the design of the login and register form to be more
 
 ## Changes
 The following changes and implementations have been made in that version of the project:
-* Added [Vercel Audience Analytics](https://vercel.com/docs/concepts/analytics/audiences/quickstart)
-* UI change on the login/refister form
+* Added [Vercel Audience Analytics](https://vercel.com/docs/concepts/analytics/audiences/quickstart) (SvelteKit)
+* UI change on the login/register form
 
 
 ## Features
-✅ Audience Analytics 👀       
+✅ Audience Analytics 👀   
+
+## Code
+Nothing too interesting happened in this change. Just implementing the analytics the documented way.  
+Plus lots of boring css that is not worth sharing.
+
+package.json (npm i @vercel/analytics)
+```json
+"@vercel/analytics": "^0.1.8",
+```
+
++layout.svelte
+```html
+<script lang="ts">
+    import { dev } from '$app/environment';
+    import { inject } from '@vercel/analytics';
+
+    inject({ mode: dev ? 'development' : 'production' });
+</script>
+```
+
 
 <hr>
 <br>
