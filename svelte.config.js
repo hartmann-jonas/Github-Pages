@@ -17,10 +17,7 @@ const config = {
 	})],
 
 	kit: {
-		adapter: adapter({
-			pages: 'docs',
-			assets: 'docs',
-		})
+		adapter: adapter()
 	},
 	extensions: ['.svelte', '.md', '.svx'],
 	remarkPlugins: [
@@ -28,7 +25,7 @@ const config = {
 			remarkGithub,
 			{
 				// Use your own repository
-				repository: 'https://github.com/williamviktorsson/williamviktorsson.github.io.git'
+				repository: 'https://github.com/hartmann-jonas/hartmann-jonas.github.io.git'
 			}
 		],
 		remarkAbbr
