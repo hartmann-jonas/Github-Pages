@@ -28,6 +28,8 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid rgb(27, 27, 36);
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
     }
 
     .head h1 {

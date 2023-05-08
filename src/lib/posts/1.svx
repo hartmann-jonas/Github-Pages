@@ -4,7 +4,7 @@ date: "2023-04-03"
 ---
 ## How to develop a Movie Website
 This blog is about the development and concept of this [Movie Database](https://movie-db-two-hartmann-jonas.vercel.app) website.
-The website is hosted on [Vercel](https://vercel.com) and was developed using [Svelte](https://svelte.dev) as well as the [TheMovieDB API](https://developers.themoviedb.org/3).
+The website, as well as the Postgres database, is hosted on [Vercel](https://vercel.com) and was developed using [Svelte](https://svelte.dev) with [SvelteKit](https://kit.svelte.dev) as well as the [TheMovieDB API](https://developers.themoviedb.org/3).
 
 ## Features
 The website has the following features:  

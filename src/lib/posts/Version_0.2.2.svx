@@ -1,0 +1,83 @@
+---
+title: Version 0.2.2
+date: "2023-05-08"
+---
+# UX improvements
+## Description
+This version includes changes in the login process and small improvements on the movie detail page regarding the likes. In addition the database was transfered from Render to the new Vercel Postgres for better performance.
+
+## Changes
+In this version small improvements to improve the user experience have been made, they include the following:
+
+* Add Cloudflare Turnstile Captcha
+* Vercel Postgres Database
+
+Bug fixes:
+* Likes update after liking by using a reactive statement
+
+
+
+## Features
+✅ Add CF Turnstile Captcha to increase security 👮  
+✅ Vercel Postgres 🔐  
+✅ Updated like count after liking a movie 👍🏼  
+
+## Code
+Explanation of how the captcha works.
+
+login/+page.svelte
+```html
+<script>
+    import { Turnstile } from 'svelte-turnstile'
+
+    export let form
+</script>
+
+<!--Include the Turnstile script in the HTML head-->
+<svelte:head>
+   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</svelte:head>
+
+<!--Add the Turnstile component to the form-->
+<form>
+    [...]
+    <Turnstile siteKey="mySiteKey" theme="light" data-size="compact"/>
+</form>
+
+<!--Include an error message for the failed captcha-->
+{#if form?.captcha}
+    <p class="error">Captcha failed: {form?.error}</p>
+{/if}
+```
+
+login/+page.server.ts
+```ts
+// Include the function given in the documentation of svelte-turnstile
+async function validateToken(token: string, secret: string) {
+    [...]
+}
+
+// Change the login method to check for a valid token
+const login: Action =async ({ cookies, request}) => {
+    const data = await request.formData()
+    [...]
+
+    const token = data.get('cf-turnstile-response')
+    // Call the validateToken function as included above
+    const { success, error } = await validateToken(token, SECRET_KEY)
+    if (!success) {
+        return fail(400, { captcha: true, error })
+    }
+
+    // If everything is ok continue to run the login
+
+}
+```
+
+<hr>
+<br>
+Commits: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/f1e15c3d406c0e62aad044ee7a2d3515c4ed19bf" target="_blank">Version 0.2.2 (1)</a>
+<a href="https://github.com/hartmann-jonas/movie-db-two/commit/7999fef1ac08ae1391afec1e6e86c1a595bce4f0" target="_blank">Version 0.2.2 (2)</a>
+<a href="https://github.com/hartmann-jonas/movie-db-two/commit/6ddf0ba02114a4b82a0bf10738b1eac9e61bf32e" target="_blank">Version 0.2.2 (3)</a>
+
+Published: 2023-04-19
