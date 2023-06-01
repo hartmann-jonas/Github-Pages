@@ -1,0 +1,31 @@
+---
+title: Version 1.0.0
+date: "2023-06-01"
+---
+# Introducing comments
+## Description
+This version includes a big new feature! You can now write comments below your favourite movies. Also the UI has been completely reworked to include a light and dark mode
+
+## Changes
+In this version comments have been added to improve the user experience, they include the following:
+
+* Add the feature to write comments below the movie
+* Update databsae to include a comments model
+* New UI with light and dark mode (complete css rework)
+* Skeleton loader for the elements that require database operations
+
+Bug fixes:
+* Navbar not always on top
+
+
+## Features
+✅ Write comments below the movies ✍🏼  
+✅ New UI with light and dark mode 🌗
+
+
+<hr>
+<br>
+Commits: <a href="https://github.com/hartmann-jonas/movie-db-two/commit/6961df36b6c24cd76a032fb8c7a686b8539a152f" target="_blank">Version 0.2.2 (1)</a>
+<a href="https://github.com/hartmann-jonas/movie-db-two/commit/2e03ab58cbbbe2eecdde3bb3d252a6f0528e8d48" target="_blank">Version 1.0.0 (2)</a>
+
+Published: 2023-06-01
